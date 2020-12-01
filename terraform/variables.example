@@ -1,0 +1,21 @@
+variable "project_id" {
+    type = string
+    default = <YOUR_PROJECT_ID>
+}
+
+variable "cloudrun_name" {
+    type = string
+    default = <NAME_SERVICE_CLOUDRUN>
+}
+
+variable "container_gcp" {
+    type = string
+    default = <URL_CONTAINER_REGISTRY>
+}
+
+variable zones {
+    type = map
+    default = {
+        "uscentral" = "us-central1"
+    }
+}
