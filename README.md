@@ -40,3 +40,28 @@ Select your images in CONTAINER REGISTRY and select RUN CLOUD RUN,
 assigned name for the service and don't remember check option for allow invocations
 
 
+## TERRAFORM OPTION
+You can use terraform CLI
+
+### PREREQUSITES
+- terraform sdk
+
+### USE
+- Rename variables.example to variables.tf in terraform directory
+
+```bash
+cd terraform
+mv variables.example variables.tf
+```
+Adjust the name in the variables for project gcp id , name for your service and url for container registry
+```bash
+terraform init
+terraform plan
+terraform apply
+```
+
+For clean and destroy
+```bash
+terraform destroy
+```
+

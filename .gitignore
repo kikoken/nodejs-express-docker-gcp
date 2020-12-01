@@ -32,6 +32,9 @@ coverage
 # terraform
 variables.tf
 variable.tf
+.terraform
+*.tfstate
+*.tfstate.backup
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
 dist/

@@ -6,7 +6,7 @@ provider "google" {
 }
 
 # Deploy image to Cloud Run
-resource "google_cloud_run_service" "app-node" {
+resource "google_cloud_run_service" "appnode" {
     name = var.cloudrun_name
     location = var.zones["uscentral"]
     template {
@@ -34,14 +34,14 @@ data "google_iam_policy" "noauth" {
 }
 
 resource "google_cloud_run_service_iam_policy" "noauth" {
-  location    = google_cloud_run_service.default.location
-  project     = google_cloud_run_service.default.project
-  service     = google_cloud_run_service.default.name
+  location    = google_cloud_run_service.appnode.location
+  project     = google_cloud_run_service.appnode.project
+  service     = google_cloud_run_service.appnode.name
 
   policy_data = data.google_iam_policy.noauth.policy_data
 }
 
 # Return service URL
 output "url" {
-  value = "${google_cloud_run_service.mywebapp.status[0].url}"
+  value = google_cloud_run_service.appnode.status[0].url
 }
