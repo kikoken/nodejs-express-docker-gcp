@@ -1,8 +1,8 @@
 # NODEJS APP DOCKERIZED AND DEPLOY IN GCP
 
-This project it is a simple express rest application that only one endpoint called /ping.
+This project it is a simple express rest application that have only one endpoint called /ping.
 created in ES6 and docker setup image configuration.
-This docker image is for deployment in GCP enviroment using Cloud Build
+This docker image is for deployment in GCP enviroment using Cloud Run
 
 
 ## PREREQUISITES
@@ -10,10 +10,11 @@ This docker image is for deployment in GCP enviroment using Cloud Build
 - npm
 - docker
 - GCP SDK
+- Project in GCP
 
 ## LOCAL RUN
 
-Execute the bash file for generate the bundle and docker image
+Execute the bash file for generate the bundle node app and docker image
 ```bash
 ./build.sh
 ```
@@ -31,6 +32,11 @@ When just ready your docker images, then deploy this in Contanier registry used:
 docker tag <images_name> gcr.io/<YOUR_PROJECT_ID>/<image_name>
 docker push gcr.io/<YOUR_PROJECT_ID>/<image_name>
 ```
+
 > the image name can be changed in build.sh
+
+## RUN IN CLOUD RUN
+Select your images in CONTAINER REGISTRY and select RUN CLOUD RUN,
+assigned name for the service and don't remember check option for allow invocations
 
 
